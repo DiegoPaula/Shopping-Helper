@@ -1,0 +1,183 @@
+//VARIABLES
+$test: 1px solid goldenrod;
+$border-color: hsla(0, 0%, 100%, 1);
+$border-width: 2px;
+$background-input-color: hsla(0, 0%, 0%, .33);
+$font-color: white;
+
+
+//MIXINS
+@mixin centered-flex-container() {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin centered-content() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 1.5rem;
+    font-weight: bold;
+    color: $font-color;
+}
+
+@mixin input($position) {
+    background-color: $background-input-color;
+    border: $border-width solid $border-color;
+    color: $font-color;
+    font-weight: bold;
+    text-align: center;
+    height: 1.5rem;
+    
+    @if $position == left {
+        border-right-width: calc(#{$border-width} *2 2);
+    }
+    @if $position == middle {
+        border-width: $border-width calc(#{$border-width} / 2);
+    }
+    @if $position == right {
+        border-left-width: calc(#{$border-width} *2 2);
+        min-height: 1.75rem;
+        min-width: 1.75rem;
+    }
+    &::placeholder {
+        color: $font-color;
+        text-align: center;
+    }
+    &:focus::placeholder {
+        color: transparent;
+    }
+}
+
+
+//RESET
+body, section, ul, li, input, button, p {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+
+//STYLE
+body {
+    background: #FF416C;
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+    background: linear-gradient(to right, #FF4B2B, #FF416C);
+    @include centered-flex-container();
+    section {
+        width: 50%;
+    }
+}
+
+.inputContainer {
+    margin: 2rem 0;
+    @include centered-flex-container();
+    #quantProduct{
+        @include input(left);
+        width: 25%;
+    }
+    #nameProduct {
+        @include input(middle);
+        width: calc(75% - 1.75rem);
+    }
+    #newProduct {
+        @include input(right);
+        color: $font-color;
+    }
+}
+
+#shoppingList {
+    width: 100%;
+}
+
+.product {
+    @include centered-flex-container();
+    flex-wrap: wrap;
+    & > span, button {
+        @include centered-content();
+    }
+    .quant {
+        width: 25%;
+    }
+    .name {
+        width: calc(75% - 1.5rem);
+        text-transform: capitalize;
+    }
+    .arrow {
+        background-color: transparent;
+        border: transparent;
+        width: 1.5rem;
+        transition: .5s;
+        &.open {
+            transform: rotateX(540deg);
+        }
+    }
+    .brandInputContainer {
+        @include centered-flex-container();
+        height: 0;
+        overflow: hidden;
+        .nameBrand {
+            @include input(left);
+            width: calc(50% - 1.75rem);
+            text-transform: capitalize;
+        }
+        .quantBrand {
+            @include input(middle);
+            width: 25%;
+        }
+        .priceBrand {
+            @include input(middle);
+            width: 25%;
+        }
+        .addBrand {
+            @include input(right);
+        }
+        &.active {
+            height: fit-content;
+        }
+    }
+}
+
+.brands {
+    width: 100%;
+}
+
+.brand {
+    @include centered-flex-container();
+    & > span {
+        @include centered-content();
+    }
+    .name {
+        width: 30%;
+    }
+    .quant {
+        width: 20%;
+    }
+    .price {
+        width: 25%;
+    }
+    .cb {
+        width: 25%;
+    }
+}
+
+#delete {
+    position: absolute;
+    background-color: $background-input-color;
+    border: $border-width solid $border-color;
+    color: $font-color;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: .25rem;
+    bottom: 2rem;
+    right: 2rem;
+    transform: scale(1);
+    box-shadow: 7.5px 7.5px 10px black;
+    &:active {
+        transform: scale(.99);
+        box-shadow: 5px 5px 10px black;
+    }
+}

@@ -1,0 +1,206 @@
+body, section, ul, li, input, button, p {
+  margin: 0px;
+  padding: 0px;
+  list-style: none; }
+
+body {
+  background: #FF416C;
+  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+  background: linear-gradient(to right, #FF4B2B, #FF416C);
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center; }
+  body section {
+    width: 50%; }
+
+.inputContainer {
+  margin: 2rem 0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center; }
+  .inputContainer #quantProduct {
+    background-color: rgba(0, 0, 0, 0.33);
+    border: 2px solid white;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    height: 1.5rem;
+    border-right-width: calc(2px *2 2);
+    width: 25%; }
+    .inputContainer #quantProduct::placeholder {
+      color: white;
+      text-align: center; }
+    .inputContainer #quantProduct:focus::placeholder {
+      color: transparent; }
+  .inputContainer #nameProduct {
+    background-color: rgba(0, 0, 0, 0.33);
+    border: 2px solid white;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    height: 1.5rem;
+    border-width: 2px calc(2px / 2);
+    width: calc(75% - 1.75rem); }
+    .inputContainer #nameProduct::placeholder {
+      color: white;
+      text-align: center; }
+    .inputContainer #nameProduct:focus::placeholder {
+      color: transparent; }
+  .inputContainer #newProduct {
+    background-color: rgba(0, 0, 0, 0.33);
+    border: 2px solid white;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    height: 1.5rem;
+    border-left-width: calc(2px *2 2);
+    min-height: 1.75rem;
+    min-width: 1.75rem;
+    color: white; }
+    .inputContainer #newProduct::placeholder {
+      color: white;
+      text-align: center; }
+    .inputContainer #newProduct:focus::placeholder {
+      color: transparent; }
+
+#shoppingList {
+  width: 100%; }
+
+.product {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; }
+  .product > span, .product button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 1.5rem;
+    font-weight: bold;
+    color: white; }
+  .product .quant {
+    width: 25%; }
+  .product .name {
+    width: calc(75% - 1.5rem);
+    text-transform: capitalize; }
+  .product .arrow {
+    background-color: transparent;
+    border: transparent;
+    width: 1.5rem;
+    transition: .5s; }
+    .product .arrow.open {
+      transform: rotateX(540deg); }
+  .product .brandInputContainer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 0;
+    overflow: hidden; }
+    .product .brandInputContainer .nameBrand {
+      background-color: rgba(0, 0, 0, 0.33);
+      border: 2px solid white;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      height: 1.5rem;
+      border-right-width: calc(2px *2 2);
+      width: calc(50% - 1.75rem);
+      text-transform: capitalize; }
+      .product .brandInputContainer .nameBrand::placeholder {
+        color: white;
+        text-align: center; }
+      .product .brandInputContainer .nameBrand:focus::placeholder {
+        color: transparent; }
+    .product .brandInputContainer .quantBrand {
+      background-color: rgba(0, 0, 0, 0.33);
+      border: 2px solid white;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      height: 1.5rem;
+      border-width: 2px calc(2px / 2);
+      width: 25%; }
+      .product .brandInputContainer .quantBrand::placeholder {
+        color: white;
+        text-align: center; }
+      .product .brandInputContainer .quantBrand:focus::placeholder {
+        color: transparent; }
+    .product .brandInputContainer .priceBrand {
+      background-color: rgba(0, 0, 0, 0.33);
+      border: 2px solid white;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      height: 1.5rem;
+      border-width: 2px calc(2px / 2);
+      width: 25%; }
+      .product .brandInputContainer .priceBrand::placeholder {
+        color: white;
+        text-align: center; }
+      .product .brandInputContainer .priceBrand:focus::placeholder {
+        color: transparent; }
+    .product .brandInputContainer .addBrand {
+      background-color: rgba(0, 0, 0, 0.33);
+      border: 2px solid white;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      height: 1.5rem;
+      border-left-width: calc(2px *2 2);
+      min-height: 1.75rem;
+      min-width: 1.75rem; }
+      .product .brandInputContainer .addBrand::placeholder {
+        color: white;
+        text-align: center; }
+      .product .brandInputContainer .addBrand:focus::placeholder {
+        color: transparent; }
+    .product .brandInputContainer.active {
+      height: fit-content; }
+
+.brands {
+  width: 100%; }
+
+.brand {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center; }
+  .brand > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 1.5rem;
+    font-weight: bold;
+    color: white; }
+  .brand .name {
+    width: 30%; }
+  .brand .quant {
+    width: 20%; }
+  .brand .price {
+    width: 25%; }
+  .brand .cb {
+    width: 25%; }
+
+#delete {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.33);
+  border: 2px solid white;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: .25rem;
+  bottom: 2rem;
+  right: 2rem;
+  transform: scale(1);
+  box-shadow: 7.5px 7.5px 10px black; }
+  #delete:active {
+    transform: scale(0.99);
+    box-shadow: 5px 5px 10px black; }
+
+/*# sourceMappingURL=style.css.map */
